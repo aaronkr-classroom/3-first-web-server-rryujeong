@@ -15,7 +15,7 @@ const httpStatus = require('http-status-codes'),
   routes = {
     GET: {
       "/info": (req,res) => {
-        res.writehead(httpStatus.OK, htmlContentType);
+        res.writeHead(httpStatus.OK, htmlContentType);
         res.end("Welcom to the INFO page!");
       },
     },
@@ -28,11 +28,11 @@ exports.handle = (req,res) => {
     if(routes[req.method][req.url]){
       routes[req.method][req.url](req,res);
     }else{
-      res.writehead(httpStatus.NOT_FOUND,htmlContentType);
+      res.writeHead(httpStatus.NOT_FOUND,htmlContentType);
       res.end("<h1>404</h1><h2>File not found.</h2>");
     }
   }catch(error){
-    consonle.log("error: " + error);
+    console.log("error: " + error);
   }
 };
 
